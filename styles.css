@@ -1,0 +1,236 @@
+/* Reset styles */
+body,
+h1,
+h2,
+p,
+div,
+section,
+audio {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #5b3f5f, #481356);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    background: rgba(123, 97, 120, 0.3); /* Cor de fundo translúcida */
+    backdrop-filter: blur(10px); /* Aplica o desfoque de fundo */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(120deg, #c288c8, #8b45bb);
+    color: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Section */
+section {
+    margin: 20px 0;
+}
+
+/* Contador */
+#counter h2 {
+    font-size: 1.8em;
+    color: #a968b0;
+    margin-bottom: 10px;
+}
+
+#time-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 20px;
+    background: linear-gradient(120deg, #c288c8, #8b45bb);
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Galeria de Fotos */
+#gallery h2 {
+    font-size: 1.8em;
+    color: #f093fb;
+    margin-bottom: 15px;
+}
+
+/* Foto em formato 4:3 */
+.photo-gallery {
+    position: relative;
+    width: 100%; /* A largura é 100% do contêiner */
+    padding-top: 75%; /* A altura será 75% da largura, criando a proporção 4:3 */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden; /* Garante que a imagem não ultrapasse o contêiner */
+}
+
+.photo-gallery img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* A largura da imagem será 100% do contêiner */
+    height: 100%; /* A altura da imagem será 100% do contêiner */
+    object-fit: cover; /* Garante que a imagem cubra o contêiner mantendo a proporção */
+    border-radius: 10px;
+}
+
+/* Setas do carrossel */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    user-select: none;
+    z-index: 100;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.carousel-arrow:hover {
+    color: #f093fb;
+}
+
+/* Player de Música - Minimalista */
+audio {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    #counter h2 {
+        font-size: 1.5em;
+    }
+
+    #time-display {
+        font-size: 1.2em;
+    }
+
+    #gallery h2 {
+        font-size: 1.5em;
+    }
+
+    .photo-gallery {
+        padding-top: 75%;
+        height: 300px; /* Reduz a altura para telas menores */
+    }
+    
+    .carousel-arrow {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    #time-display {
+        font-size: 1.1em;
+    }
+
+    .photo-gallery {
+        padding-top: 75%;
+        height: 250px; /* Ajusta a altura para dispositivos muito pequenos */
+    }
+    
+    .carousel-arrow {
+        font-size: 1.2em;
+    }
+
+    /* Player de Música com controles transparentes */
+audio {
+    width: 100%;
+    background: rgba(134, 91, 139); /* Transparência para o fundo */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0); /* Sombra leve */
+    opacity: 0.9; /* Torna o player parcialmente transparente */
+}
+
+/* Transparência nos controles (pode não funcionar em todos os navegadores) */
+audio::-webkit-media-controls-panel {
+    background-color: rgb(134, 91, 139) !important; /* Fundo transparente para os controles */
+    border-radius: 10px;
+}
+
+/* Para outros navegadores (Firefox, etc.) */
+audio::-moz-media-controls-panel {
+    background-color: rgba(2134, 91, 139) !important;
+}
+
+/* Ajuste os controles de som, play, etc. */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider {
+    background-color: rgba(134, 91, 139) !important; /* Transparência nos botões */
+}
+
+}
